@@ -1,61 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Información del producto</title>
-
-<style>
-body{
-    margin:0;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-family:Arial;
-    background:white;
-    text-align:center;
-    padding:20px;
-}
-
-h1{
-    font-size:30px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lectura Automática de Texto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+            margin: 0;
+        }
+        .contenedor {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 500px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
-
 <body>
 
-<h1>Cargando información del producto...</h1>
+    <div class="contenedor">
+        <h2>Lectura de Texto Automática</h2>
+        <p id="texto-a-leer">Producto: Aceite. Precio: 7.50 nuevos soles.</p>
+        
+        <button onclick="reproducirTexto()">Escuchar de nuevo</button>
+    </div>
 
-<script>
+    <script>
+        function reproducirTexto() {
+            // Capturamos el texto que queremos que lea
+            const texto = document.getElementById("texto-a-leer").innerText;
+            
+            // Creamos el objeto de mensaje
+            const mensaje = new SpeechSynthesisUtterance(texto);
+            
+            // Configuramos el idioma (Español)
+            mensaje.lang = "es-ES";
+            
+            // Opcional: Ajustar velocidad (1 es normal, 1.5 más rápido, 0.8 más lento)
+            mensaje.rate = 1; 
+            
+            // Opcional: Ajustar tono (1 es normal)
+            mensaje.pitch = 1; 
 
-function hablar() {
+            // Ejecutamos la reproducción de voz
+            window.speechSynthesis.speak(mensaje);
+        }
 
-    const mensaje = new SpeechSynthesisUtterance(
-        "Galleta Soda DIA.Ocho galletas. Precio 0.50 nuevos soles"
-    );
-
-    mensaje.lang = "es-ES";
-    mensaje.volume = 1;
-    mensaje.rate = 1;
-    mensaje.pitch = 1;
-
-    speechSynthesis.speak(mensaje);
-}
-
-window.onload = () => {
-
-    hablar();
-
-    setTimeout(hablar, 1000);
-
-    document.body.addEventListener("click", hablar, { once:true });
-
-};
-
-</script>
+        // Intentar reproducir automáticamente al cargar la página
+        window.addEventListener("DOMContentLoaded", () => {
+            // Un pequeño retraso para asegurar que el navegador responda bien
+            setTimeout(() => {
+                reproducirTexto();
+            }, 500);
+        });
+    </script>
 
 </body>
 </html>
