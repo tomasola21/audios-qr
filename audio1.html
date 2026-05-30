@@ -4,37 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Información del producto</title>
-
 <style>
 body{
     margin:0;
-    background:#ffffff;
+    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
     font-family:Arial;
-}
-
-button{
-    width:90%;
-    max-width:400px;
-    padding:40px;
-    font-size:32px;
-    border:none;
-    border-radius:20px;
-    background:black;
-    color:white;
+    background:white;
+    text-align:center;
+    padding:20px;
 }
 </style>
 </head>
 
-<body>
+<body onclick="document.getElementById('audio').play()">
 
-<button onclick="document.getElementById('audio').play()">
-▶ ESCUCHAR INFORMACIÓN
-</button>
+<h1>
+Toque cualquier parte de la pantalla para escuchar la información
+</h1>
 
 <audio id="audio">
     <source src="Audio1.mp3" type="audio/mpeg">
