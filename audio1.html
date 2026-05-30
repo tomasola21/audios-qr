@@ -1,66 +1,27 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Información Accesible</title>
-    <style>
-        /* Estilos limpios y de alto contraste para baja visión */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #ffffff;
-            color: #000000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .contenedor-accesible {
-            text-align: center;
-            max-width: 600px;
-            border: 3px solid #000000;
-            padding: 40px;
-            border-radius: 12px;
-        }
-        h1 {
-            font-size: 2rem;
-            line-height: 1.5;
-            margin: 0;
-        }
-    </style>
-</head>
-<body>
+<html>
+<body style="margin:0;display:flex;justify-content:center;align-items:center;height:100vh;font-family:Arial;">
 
-    <!-- El rol 'main' ayuda a la orientación del lector de pantalla -->
-    <main role="main" class="contenedor-accesible">
-        
-        <!-- 
-          aria-live="assertive": Dice al lector que lea esto con máxima prioridad.
-          role="alert": Fuerza la notificación auditiva inmediata al cargar.
-        -->
-        <h1 id="contenido-principal" aria-live="assertive" role="alert">
-            Cargando información...
-        </h1>
+<audio id="audio" autoplay controls muted>
+  <source src="Audio1.mp3" type="audio/mpeg">
+</audio>
 
-    </main>
+<script>
+window.onload = async () => {
+  const audio = document.getElementById("audio");
 
-    <script>
-        // Texto que deseas que la persona escuche al escanear el QR
-        const textoInformativo = "¡Hola! Bienvenido. Has escaneado el código QR correctamente. Este es el texto automático que tu lector de pantalla procesará de inmediato.";
+  try {
+    await audio.play();
 
-        window.addEventListener("DOMContentLoaded", () => {
-            // Un pequeño retraso para asegurar que el lector de pantalla del celular esté enganchado a la página
-            setTimeout(() => {
-                const elementoVoz = document.getElementById("contenido-principal");
-                
-                // Al cambiar el texto dinámicamente, el 'aria-live' se activa y el celular habla
-                elementoVoz.innerText = textoInformativo;
-            }, 300); 
-        });
-    </script>
+    setTimeout(() => {
+      audio.muted = false;
+    }, 500);
+
+  } catch (e) {
+    console.log("Autoplay bloqueado");
+  }
+};
+</script>
 
 </body>
 </html>
