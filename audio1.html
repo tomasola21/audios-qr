@@ -20,19 +20,18 @@ body{
 }
 
 h1{
-    font-size:32px;
+    font-size:30px;
 }
 </style>
 </head>
 
 <body>
 
-<h1>
-Cargando información del producto...
-</h1>
+<h1>Cargando información del producto...</h1>
 
 <script>
-window.onload = () => {
+
+function hablar() {
 
     const mensaje = new SpeechSynthesisUtterance(
         "Bienvenido. Este producto contiene información accesible para personas con discapacidad visual."
@@ -45,9 +44,18 @@ window.onload = () => {
 
     speechSynthesis.speak(mensaje);
 }
+
+window.onload = () => {
+
+    hablar();
+
+    setTimeout(hablar, 1000);
+
+    document.body.addEventListener("click", hablar, { once:true });
+
+};
+
 </script>
 
-</body>
-</html>
 </body>
 </html>
