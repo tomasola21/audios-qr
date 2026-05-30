@@ -1,19 +1,98 @@
 <!DOCTYPE html>
-<html>
-<body 
-style="display:flex;justify-content:center;align-items:center;height:100vh;margin:0;"
-onclick="reproducirAudio()">
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<audio id="audio" controls>
-  <source src="Audio1.mp3" type="audio/mpeg">
+<title>Información del Producto</title>
+
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#f5f5f5;
+    font-family:Arial, sans-serif;
+}
+
+.contenedor{
+    width:90%;
+    max-width:500px;
+    background:white;
+    border-radius:25px;
+    padding:40px 30px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+.icono{
+    font-size:80px;
+    margin-bottom:20px;
+}
+
+h1{
+    font-size:34px;
+    margin-bottom:15px;
+    color:#222;
+}
+
+p{
+    font-size:22px;
+    color:#555;
+    line-height:1.5;
+}
+
+.mensaje{
+    margin-top:25px;
+    font-size:18px;
+    color:#888;
+}
+
+</style>
+</head>
+
+<body onclick="reproducirAudio()">
+
+<div class="contenedor">
+
+    <div class="icono">
+        🍪
+    </div>
+
+    <h1>
+        Galleta Soda DIA
+    </h1>
+
+    <p>
+        Toque cualquier parte de la pantalla para escuchar la información del producto
+    </p>
+
+    <div class="mensaje">
+        Sistema accesible mediante código QR
+    </div>
+
+</div>
+
+<audio id="audio" hidden>
+    <source src="Audio1.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
-function reproducirAudio() {
-  const audio = document.getElementById("audio");
+let reproducido = false;
 
-  audio.play().catch(() => {});
+function reproducirAudio() {
+
+    if(reproducido) return;
+
+    const audio = document.getElementById("audio");
+
+    audio.play().catch(() => {});
+
+    reproducido = true;
 }
 
 </script>
