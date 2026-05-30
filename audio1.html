@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
-<body style="display:flex;justify-content:center;align-items:center;height:100vh;">
+<body 
+style="display:flex;justify-content:center;align-items:center;height:100vh;margin:0;"
+onclick="reproducirAudio()">
 
-<audio id="audio" autoplay controls>
+<audio id="audio" controls>
   <source src="Audio1.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-window.onload = () => {
+
+function reproducirAudio() {
   const audio = document.getElementById("audio");
+
   audio.play().catch(() => {});
 }
+
 </script>
 
 </body>
