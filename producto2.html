@@ -72,12 +72,14 @@ body::after{
 
 .imagen-producto{
     width:190px;
+    height:190px; /* tamaño fijo */
+    object-fit:contain;
+    background:white;
     border-radius:22px;
     margin-bottom:20px;
     box-shadow:0 10px 25px rgba(0,0,0,0.15);
     transition:0.3s;
 }
-
 .imagen-producto:hover{
     transform:scale(1.03);
 }
