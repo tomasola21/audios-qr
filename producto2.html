@@ -57,6 +57,31 @@ body::after{
     animation:entrada 0.8s ease;
     border:1px solid rgba(255,255,255,0.5);
     backdrop-filter:blur(10px);
+    overflow:hidden;
+}
+
+/* OFERTA */
+
+.oferta{
+    position:absolute;
+    top:18px;
+    right:-45px;
+    background:linear-gradient(135deg,#ff2d2d,#ff6b00);
+    color:white;
+    width:170px;
+    text-align:center;
+    padding:10px 0;
+    font-size:16px;
+    font-weight:bold;
+    transform:rotate(35deg);
+    box-shadow:0 5px 15px rgba(255,80,0,0.35);
+    letter-spacing:1px;
+}
+
+.oferta span{
+    display:block;
+    font-size:24px;
+    margin-top:2px;
 }
 
 @keyframes entrada{
@@ -72,7 +97,7 @@ body::after{
 
 .imagen-producto{
     width:190px;
-    height:190px; /* tamaño fijo */
+    height:190px;
     object-fit:contain;
     background:white;
     border-radius:22px;
@@ -80,6 +105,7 @@ body::after{
     box-shadow:0 10px 25px rgba(0,0,0,0.15);
     transition:0.3s;
 }
+
 .imagen-producto:hover{
     transform:scale(1.03);
 }
@@ -105,7 +131,26 @@ h1{
     font-size:38px;
     font-weight:bold;
     color:#0077ff;
-    margin:18px 0;
+    margin:18px 0 10px;
+}
+
+.precio-oferta{
+    display:inline-block;
+    background:linear-gradient(135deg,#ff4d4d,#ff7a00);
+    color:white;
+    padding:10px 22px;
+    border-radius:18px;
+    font-size:22px;
+    font-weight:bold;
+    box-shadow:0 8px 20px rgba(255,100,0,0.25);
+    margin-bottom:18px;
+    animation:latido 1.5s infinite;
+}
+
+@keyframes latido{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.04);}
+    100%{transform:scale(1);}
 }
 
 .detalle{
@@ -155,6 +200,12 @@ h1{
 
 <div class="contenedor">
 
+    <!-- Cinta de oferta -->
+    <div class="oferta">
+        OFERTA
+        <span>2x1</span>
+    </div>
+
     <div class="etiqueta">
         Producto Escaneado
     </div>
@@ -171,6 +222,11 @@ h1{
 
     <div class="precio">
         S/. 5.90
+    </div>
+
+    <!-- Oferta -->
+    <div class="precio-oferta">
+        Llévate 2 por 1
     </div>
 
     <div class="detalle">
