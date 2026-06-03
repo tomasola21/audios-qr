@@ -201,14 +201,9 @@ h1{
 
 let reproducido = false;
 
-/* Vibración automática al abrir */
-window.addEventListener("load", () => {
-
-    if (navigator.vibrate) {
-        navigator.vibrate([300, 100, 300]);
-    }
-
-});
+window.onload = () => {
+    navigator.vibrate(300);
+};
 
 function reproducirAudio() {
 
