@@ -72,7 +72,7 @@ body::after{
 
 .imagen-producto{
     width:190px;
-    height:190px; /* tamaño fijo */
+    height:190px;
     object-fit:contain;
     background:white;
     border-radius:22px;
@@ -201,9 +201,26 @@ h1{
 
 let reproducido = false;
 
-window.onload = () => {
-    navigator.vibrate(300);
-};
+/* Apenas abre la página */
+window.addEventListener("load", () => {
+
+    /* Vibración */
+    if(navigator.vibrate){
+        navigator.vibrate([200,100,200]);
+    }
+
+    /* Voz automática */
+    const mensaje = new SpeechSynthesisUtterance(
+        "Código escaneado correctamente"
+    );
+
+    mensaje.lang = "es-ES";
+    mensaje.rate = 1;
+    mensaje.pitch = 1;
+
+    speechSynthesis.speak(mensaje);
+
+});
 
 function reproducirAudio() {
 
