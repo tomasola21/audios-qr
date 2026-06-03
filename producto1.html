@@ -199,9 +199,6 @@ h1{
 
 <script>
 
-let reproducido = false;
-
-/* Apenas abre la página */
 window.addEventListener("load", () => {
 
     /* Vibración */
@@ -209,31 +206,34 @@ window.addEventListener("load", () => {
         navigator.vibrate([200,100,200]);
     }
 
-    /* Voz automática */
-    const mensaje = new SpeechSynthesisUtterance(
-        "Código escaneado correctamente"
-    );
+    /* Audio silencioso para "desbloquear" */
+    const desbloqueo = new Audio();
+    desbloqueo.muted = true;
 
-    mensaje.lang = "es-ES";
-    mensaje.rate = 1;
-    mensaje.pitch = 1;
+    desbloqueo.play()
+    .then(() => {
 
-    speechSynthesis.speak(mensaje);
+        /* Voz automática */
+        const mensaje = new SpeechSynthesisUtterance(
+            "Código escaneado correctamente"
+        );
+
+        mensaje.lang = "es-ES";
+        mensaje.volume = 1;
+        mensaje.rate = 1;
+        mensaje.pitch = 1;
+
+        speechSynthesis.speak(mensaje);
+
+    })
+    .catch(() => {
+
+        console.log("El navegador bloqueó el audio automático");
+
+    });
 
 });
 
-function reproducirAudio() {
-
-    if(reproducido) return;
-
-    const audio = document.getElementById("audio");
-
-    audio.play().catch(() => {});
-
-    reproducido = true;
-}
-
 </script>
-
 </body>
 </html>
