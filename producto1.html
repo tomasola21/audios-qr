@@ -220,19 +220,6 @@ function reproducirAudio() {
     reproducido = true;
 }
 
-let reproducido = false;
-
-function reproducirAudio() {
-
-    if(reproducido) return;
-
-    const audio = document.getElementById("audio");
-
-    audio.play().catch(() => {});
-
-    reproducido = true;
-}
-
 </script>
 
 </body>
