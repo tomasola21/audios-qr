@@ -198,6 +198,27 @@ h1{
 </audio>
 
 <script>
+let reproducido = false;
+
+/* Vibración automática al abrir */
+window.addEventListener("load", () => {
+
+    if (navigator.vibrate) {
+        navigator.vibrate([300, 100, 300]);
+    }
+
+});
+
+function reproducirAudio() {
+
+    if(reproducido) return;
+
+    const audio = document.getElementById("audio");
+
+    audio.play().catch(() => {});
+
+    reproducido = true;
+}
 
 let reproducido = false;
 
