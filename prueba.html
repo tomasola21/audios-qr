@@ -1,27 +1,33 @@
 <!DOCTYPE html>
-<html>
-<body style="margin:0;display:flex;justify-content:center;align-items:center;height:100vh;font-family:Arial;">
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<audio id="audio" autoplay controls muted>
-  <source src="Producto1.mp3" type="audio/mpeg">
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial;
+    background:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body onclick="document.getElementById('audio').play()">
+
+<h1>
+Toque cualquier parte de la pantalla para escuchar la información
+</h1>
+
+<audio id="audio">
+    <source src="Producto1.mp3" type="audio/mpeg">
 </audio>
-
-<script>
-window.onload = async () => {
-  const audio = document.getElementById("audio");
-
-  try {
-    await audio.play();
-
-    setTimeout(() => {
-      audio.muted = false;
-    }, 500);
-
-  } catch (e) {
-    console.log("Autoplay bloqueado");
-  }
-};
-</script>
 
 </body>
 </html>
