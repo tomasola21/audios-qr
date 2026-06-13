@@ -206,20 +206,31 @@
     </audio>
 
     <script>
-        let reproducido = false;
+    let reproducido = false;
 
-        function reproducirAudio() {
+    window.addEventListener("load", () => {
 
-            if (reproducido) return;
-
-            const audio = document.getElementById("audio");
-
-            audio.play().catch(() => { });
-
-            reproducido = true;
+        if ("vibrate" in navigator) {
+            navigator.vibrate([500]);
         }
-    </script>
 
+    });
+
+    function reproducirAudio() {
+
+        if (reproducido) return;
+
+        if ("vibrate" in navigator) {
+            navigator.vibrate([300, 100, 300]);
+        }
+
+        const audio = document.getElementById("audio");
+
+        audio.play().catch(() => { });
+
+        reproducido = true;
+    }
+</script>
 </body>
 
 </html>
