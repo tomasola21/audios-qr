@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Información del Producto</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+    radial-gradient(circle at top right,#dfe9ff,#f7f9ff 40%),
+    radial-gradient(circle at bottom left,#eaf4ff,#ffffff 60%);
+    padding:20px;
+}
+
+.card{
+    width:100%;
+    max-width:450px;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(25px);
+    border:1px solid rgba(255,255,255,.7);
+    border-radius:35px;
+    overflow:hidden;
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.12),
+    0 5px 15px rgba(0,0,0,.05);
+    animation:entrada .7s ease;
+}
+
+@keyframes entrada{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.banner{
+    height:120px;
+    background:linear-gradient(135deg,#007aff,#4da3ff);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.badge{
+    background:white;
+    color:#007aff;
+    padding:10px 20px;
+    border-radius:999px;
+    font-size:14px;
+    font-weight:700;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.contenido{
+    padding:25px;
+    text-align:center;
+}
+
+.imagen-producto{
+    width:200px;
+    height:200px;
+    object-fit:contain;
+    background:white;
+    border-radius:25px;
+    padding:10px;
+    margin-top:-80px;
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.imagen-producto:hover{
+    transform:scale(1.05);
+}
+
+h1{
+    margin-top:20px;
+    font-size:32px;
+    color:#111;
+    font-weight:700;
+}
+
+.marca{
+    color:#777;
+    font-size:17px;
+    margin-top:8px;
+}
+
+.precio{
+    margin-top:25px;
+    font-size:48px;
+    font-weight:800;
+    color:#007aff;
+}
+
+.info-grid{
+    margin-top:25px;
+    display:grid;
+    gap:15px;
+}
+
+.item{
+    background:#f5f8ff;
+    border-radius:18px;
+    padding:15px;
+}
+
+.label{
+    font-size:13px;
+    color:#777;
+    margin-bottom:5px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.valor{
+    font-size:20px;
+    font-weight:600;
+    color:#222;
+}
+
+.fecha{
+    color:#ff3b30;
+}
+
+.footer{
+    margin-top:25px;
+    background:#f9fbff;
+    border-radius:18px;
+    padding:16px;
+    color:#555;
+    line-height:1.5;
+}
+
+.audio-info{
+    margin-top:20px;
+    color:#999;
+    font-size:14px;
+    animation:parpadeo 1.5s infinite;
+}
+
+@keyframes parpadeo{
+    0%{opacity:.4;}
+    50%{opacity:1;}
+    100%{opacity:.4;}
+}
+
+@media(max-width:480px){
+
+    .contenido{
+        padding:20px;
+    }
+
+    h1{
+        font-size:28px;
+    }
+
+    .precio{
+        font-size:42px;
+    }
+
+    .imagen-producto{
+        width:180px;
+        height:180px;
+    }
+}
+
+</style>
+</head>
+
+<body onclick="reproducirAudio()">
+
+<div class="card">
+
+    <div class="banner">
+        <div class="badge">
+            Producto Escaneado
+        </div>
+    </div>
+
+    <div class="contenido">
+
+        <img src="Producto1.jpg" class="imagen-producto">
+
+        <h1>Azucar Impalpable</h1>
+
+        <div class="marca">
+            Marca: Bell's
+        </div>
+
+        <div class="precio">
+            S/. 1.90
+        </div>
+
+        <div class="info-grid">
+
+            <div class="item">
+                <div class="label">
+                    Peso Neto
+                </div>
+                <div class="valor">
+                    180g
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="label">
+                    Fecha de Vencimiento
+                </div>
+                <div class="valor fecha">
+                    12/03/27
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            Producto de consumo diario • Calidad garantizada
+        </div>
+
+        <div class="audio-info">
+            🔊 Toque la pantalla para escuchar
+        </div>
+
+    </div>
+
+</div>
+
+<audio id="audio" hidden>
+    <source src="Producto1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+let reproducido = false;
+
+function reproducirAudio(){
+
+    if(reproducido) return;
+
+    const audio = document.getElementById("audio");
+
+    audio.play().catch(()=>{});
+
+    reproducido = true;
+}
+
+</script>
+
+</body>
+</html>
