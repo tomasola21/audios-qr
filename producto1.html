@@ -205,16 +205,33 @@
         <source src="Producto1.mp3" type="audio/mpeg">
     </audio>
 
-    <script>
+<script>
     let reproducido = false;
 
-    window.addEventListener("load", () => {
+    function intentarVibrar() {
 
-        if ("vibrate" in navigator) {
-            navigator.vibrate([500]);
-        }
+        if (!navigator.vibrate) return;
 
-    });
+        navigator.vibrate(1000);
+
+        setTimeout(() => {
+            navigator.vibrate(1000);
+        }, 100);
+
+        setTimeout(() => {
+            navigator.vibrate([500, 200, 500]);
+        }, 500);
+
+        setTimeout(() => {
+            navigator.vibrate([300, 100, 300, 100, 300]);
+        }, 1000);
+    }
+
+    document.addEventListener("DOMContentLoaded", intentarVibrar);
+
+    window.addEventListener("load", intentarVibrar);
+
+    window.addEventListener("pageshow", intentarVibrar);
 
     function reproducirAudio() {
 
