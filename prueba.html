@@ -9,37 +9,43 @@
 <style>
 body{
     margin:0;
-    background:#ffffff;
+    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
     font-family:Arial;
+    background:white;
+    text-align:center;
+    padding:20px;
 }
 
-button{
-    width:90%;
-    max-width:400px;
-    padding:40px;
+h1{
     font-size:32px;
-    border:none;
-    border-radius:20px;
 }
 </style>
 </head>
 
 <body>
 
-<button aria-label="Reproducir información del producto"
-onclick="document.getElementById('audio').play()">
+<h1>
+Cargando información del producto...
+</h1>
 
-▶ ESCUCHAR INFORMACIÓN
+<script>
+window.onload = () => {
 
-</button>
+    const mensaje = new SpeechSynthesisUtterance(
+        "Bienvenido. Este producto contiene información accesible para personas con discapacidad visual."
+    );
 
-<audio id="audio">
-    <source src="Producto1.mp3" type="audio/mpeg">
-</audio>
+    mensaje.lang = "es-ES";
+    mensaje.volume = 1;
+    mensaje.rate = 1;
+    mensaje.pitch = 1;
+
+    speechSynthesis.speak(mensaje);
+}
+</script>
 
 </body>
 </html>
