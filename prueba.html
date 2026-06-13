@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
-<body>
+<body style="margin:0;display:flex;justify-content:center;align-items:center;height:100vh;font-family:Arial;">
 
-<audio id="audio" autoplay controls>
-  <source src="Producto1.mp3" type="audio/mpeg">
+<audio id="audio" autoplay controls muted>
+  <source src="Audio1.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-window.onload = () => {
-  document.getElementById("audio").play();
-}
+window.onload = async () => {
+  const audio = document.getElementById("audio");
+
+  try {
+    await audio.play();
+
+    setTimeout(() => {
+      audio.muted = false;
+    }, 500);
+
+  } catch (e) {
+    console.log("Autoplay bloqueado");
+  }
+};
 </script>
 
 </body>
