@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Información del producto</title>
+
 <style>
 body{
     margin:0;
@@ -16,18 +18,34 @@ body{
     text-align:center;
     padding:20px;
 }
+
+h1{
+    font-size:32px;
+}
 </style>
 </head>
 
-<body onclick="document.getElementById('audio').play()">
+<body>
 
 <h1>
-Toque cualquier parte de la pantalla para escuchar la información
+ Información del producto.
 </h1>
 
-<audio id="audio">
-    <source src="Producto1.mp3" type="audio/mpeg">
-</audio>
+<script>
+window.onload = () => {
+
+    const mensaje = new SpeechSynthesisUtterance(
+        "Azucar impalpable. Marca: Bell's. Fecha de vencimiento: 12 de marzo del 2027. Peso neto: 180 gramos. Precio: un sol con noventa centimos."
+    );
+
+    mensaje.lang = "es-ES";
+    mensaje.volume = 1;
+    mensaje.rate = 1;
+    mensaje.pitch = 1;
+
+    speechSynthesis.speak(mensaje);
+}
+</script>
 
 </body>
 </html>
