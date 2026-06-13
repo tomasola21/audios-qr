@@ -206,47 +206,47 @@
     </audio>
 
 <script>
-    let reproducido = false;
+window.addEventListener("load", () => {
 
-    function intentarVibrar() {
-
-        if (!navigator.vibrate) return;
-
-        navigator.vibrate(1000);
-
-        setTimeout(() => {
-            navigator.vibrate(1000);
-        }, 100);
-
-        setTimeout(() => {
-            navigator.vibrate([500, 200, 500]);
-        }, 500);
-
-        setTimeout(() => {
-            navigator.vibrate([300, 100, 300, 100, 300]);
-        }, 1000);
+    // Vibración inmediata
+    if (navigator.vibrate) {
+        navigator.vibrate([500, 200, 500]);
     }
 
-    document.addEventListener("DOMContentLoaded", intentarVibrar);
+    // Intentos adicionales
+    setTimeout(() => {
+        navigator.vibrate?.(1000);
+    }, 50);
 
-    window.addEventListener("load", intentarVibrar);
+    setTimeout(() => {
+        navigator.vibrate?.([300, 100, 300, 100, 300]);
+    }, 300);
 
-    window.addEventListener("pageshow", intentarVibrar);
+    // Audio automático
+    const audio = document.getElementById("audio");
 
-    function reproducirAudio() {
+    audio.play().then(() => {
 
-        if (reproducido) return;
+        // Si el audio arrancó, intentamos vibrar otra vez
+        navigator.vibrate?.([800, 200, 800]);
 
-        if ("vibrate" in navigator) {
-            navigator.vibrate([300, 100, 300]);
-        }
+    }).catch(() => { });
 
-        const audio = document.getElementById("audio");
+});
 
-        audio.play().catch(() => { });
+let reproducido = false;
 
-        reproducido = true;
-    }
+function reproducirAudio() {
+
+    if (reproducido) return;
+
+    navigator.vibrate?.([300, 100, 300]);
+
+    const audio = document.getElementById("audio");
+    audio.play().catch(() => { });
+
+    reproducido = true;
+}
 </script>
 </body>
 
