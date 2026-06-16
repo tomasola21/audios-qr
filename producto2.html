@@ -192,7 +192,34 @@ body::after{
 .header .talk{
     color:#4CAF32;
 }
+.oferta-tech{
 
+    width:max-content;
+
+    margin:0 auto 20px auto;
+
+    padding:8px 18px;
+
+    background:rgba(255,0,0,.15);
+
+    border:1px solid #ff4040;
+
+    color:#ff4040;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    border-radius:30px;
+
+    box-shadow:
+        0 0 10px rgba(255,0,0,.5);
+
+    animation:promoPulse 1.5s infinite;
+
+}
 .imagen-wrap{
 
     display:flex;
@@ -308,73 +335,7 @@ body::after{
     }
 
 }
-   .oferta-badge{
 
-    position:absolute;
-
-    top:12px;
-
-    right:-48px;
-
-    width:130px;
-
-    padding:8px 0;
-
-    text-align:center;
-
-    background:linear-gradient(
-        90deg,
-        #ff0000,
-        #ff4d4d
-    );
-
-    color:white;
-
-    font-size:12px;
-
-    font-weight:900;
-
-    letter-spacing:2px;
-
-    transform:rotate(45deg);
-
-    z-index:30;
-
-    box-shadow:
-        0 0 10px #ff0000,
-        0 0 25px rgba(255,0,0,.8);
-
-    animation:ofertaBadge 1.8s infinite;
-
-}
-    @media(max-width:480px){
-
-    .oferta-badge{
-
-        top:8px;
-
-        right:-55px;
-
-        width:120px;
-
-        font-size:11px;
-
-        padding:7px 0;
-
-    }
-
-}
-@keyframes ofertaBadge{
-
-    0%,100%{
-        opacity:1;
-    }
-
-    50%{
-        opacity:.65;
-    }
-
-}
 .paneles{
 
     margin-top:25px;
@@ -545,14 +506,15 @@ body::after{
 <div class="cyber">
 
     <div class="laser"></div>
-    <div class="oferta-badge">
-    OFERTA
-    </div>
+    
     <div class="header">
         <div class="touch">Touch
         </div>
         <div class="talk">&Talk
         </div>
+    </div>
+    <div class="oferta-tech">
+    ⚡ OFERTA ESPECIAL
     </div>
 
     <div class="imagen-wrap">
