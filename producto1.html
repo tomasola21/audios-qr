@@ -416,7 +416,7 @@ body::after{
     <div class="laser"></div>
 
     <div class="header">
-        <div class="touch">PTouch
+        <div class="touch">HTouch
         </div>
         <div class="talk">&Talk
         </div>
@@ -479,31 +479,36 @@ body::after{
 </audio>
 
 <script>
-// Cambiamos el booleano por un contador de reproducciones
-let reproducciones = 0; 
+
+let reproducido = false;
 
 function reproducirAudio(){
-    // Si ya se reprodujo 2 veces (o está en proceso), no hacemos nada
-    if (reproduciones >= 1) return; 
+
+    if(reproducido) return;
 
     const audio = document.getElementById("audio");
 
-    // Escuchamos cuando el audio termine la primera vez
-    audio.addEventListener('ended', function alTerminar() {
-        reproducciones++; // Sumamos 1 al contador (ahora vale 1)
+    let repeticiones = 0;
 
-        if (reproducciones < 2) {
-            audio.play().catch(() => {}); // Lo volvemos a reproducir
-        } else {
-            // Opcional: Removemos el evento para limpiar el código cuando ya cumplió su meta
-            audio.removeEventListener('ended', alTerminar); 
+    audio.addEventListener("ended", function(){
+
+        if(repeticiones < 1){
+
+            repeticiones++;
+
+            audio.currentTime = 0;
+
+            audio.play();
+
         }
+
     });
 
-    // Primera reproducción
     audio.play().catch(() => {});
-    reproducciones = 1; // Marcamos que ya empezó la primera
+
+    reproducido = true;
 }
+
 </script>
 
 </body>
