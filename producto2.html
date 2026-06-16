@@ -308,19 +308,19 @@ body::after{
     }
 
 }
-    .oferta-badge{
+   .oferta-badge{
 
     position:absolute;
 
-    top:18px;
+    top:12px;
 
-    right:-40px;
+    right:-48px;
 
-    width:150px;
+    width:130px;
+
+    padding:8px 0;
 
     text-align:center;
-
-    padding:10px 0;
 
     background:linear-gradient(
         90deg,
@@ -330,24 +330,40 @@ body::after{
 
     color:white;
 
-    font-size:14px;
+    font-size:12px;
 
     font-weight:900;
 
-    letter-spacing:3px;
+    letter-spacing:2px;
 
-    transform:rotate(35deg);
+    transform:rotate(45deg);
+
+    z-index:30;
 
     box-shadow:
-    0 0 15px #ff0000,
-    0 0 30px rgba(255,0,0,.8);
-
-    z-index:20;
+        0 0 10px #ff0000,
+        0 0 25px rgba(255,0,0,.8);
 
     animation:ofertaBadge 1.8s infinite;
 
 }
+    @media(max-width:480px){
 
+    .oferta-badge{
+
+        top:8px;
+
+        right:-55px;
+
+        width:120px;
+
+        font-size:11px;
+
+        padding:7px 0;
+
+    }
+
+}
 @keyframes ofertaBadge{
 
     0%,100%{
