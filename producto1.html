@@ -6,146 +6,396 @@
 
 <title>Información del Producto</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800;900&display=swap" rel="stylesheet">
+
 <style>
 
 *{
+    margin:0;
+    padding:0;
     box-sizing:border-box;
 }
 
 body{
-    margin:0;
-    height:100vh;
+
+ 
+    font-family:'Orbitron',sans-serif;
+
+    min-height:100vh;
+
     display:flex;
+
     justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#f8f9ff,#e7f0ff);
-    font-family:Arial, sans-serif;
-    overflow:hidden;
+
+    align-items:flex-start;
+
+    padding:20px;
+
+    overflow-x:hidden;
+
+    background:
+    linear-gradient(
+        135deg,
+        #080808,
+        #140021,
+        #050505
+    );
+
 }
 
 body::before{
+
     content:"";
-    position:absolute;
-    width:350px;
-    height:350px;
-    background:rgba(0,123,255,0.08);
+
+    position:fixed;
+
+    width:400px;
+
+    height:400px;
+
+    background:#ff00aa;
+
     border-radius:50%;
-    top:-120px;
-    right:-120px;
+
+    top:-150px;
+
+    left:-150px;
+
+    filter:blur(140px);
+
+    opacity:.25;
+
 }
 
 body::after{
+
     content:"";
-    position:absolute;
-    width:250px;
-    height:250px;
-    background:rgba(0,123,255,0.05);
+
+    position:fixed;
+
+    width:400px;
+
+    height:400px;
+
+    background:#00ffff;
+
     border-radius:50%;
-    bottom:-80px;
-    left:-80px;
+
+    bottom:-150px;
+
+    right:-150px;
+
+    filter:blur(140px);
+
+    opacity:.2;
+
 }
 
-.contenedor{
+.cyber{
+
+    width:100%;
+
+    max-width:460px;
+
     position:relative;
-    width:90%;
-    max-width:420px;
-    background:white;
-    border-radius:30px;
-    padding:35px 28px;
-    text-align:center;
-    box-shadow:0 15px 40px rgba(0,0,0,0.12);
-    animation:entrada 0.8s ease;
-    border:1px solid rgba(255,255,255,0.5);
-    backdrop-filter:blur(10px);
+
+    padding:35px;
+
+    background:rgba(10,10,10,.88);
+
+    backdrop-filter:blur(15px);
+
+    border:2px solid #ffea00;
+
+    overflow:hidden;
+
+    clip-path:polygon(
+        0 0,
+        92% 0,
+        100% 8%,
+        100% 100%,
+        8% 100%,
+        0 92%
+    );
+
+    box-shadow:
+    0 0 15px rgba(255,234,0,.6),
+    0 0 40px rgba(255,234,0,.25);
+
+    animation:entrada .8s ease;
+
 }
 
 @keyframes entrada{
+
     from{
         opacity:0;
-        transform:translateY(25px) scale(0.95);
+        transform:scale(.9);
     }
+
     to{
         opacity:1;
-        transform:translateY(0) scale(1);
+        transform:scale(1);
     }
+
+}
+
+.header{
+
+    text-align:center;
+
+    color:#ffea00;
+
+    font-size:14px;
+
+    font-weight:900;
+
+    letter-spacing:4px;
+
+    margin-bottom:25px;
+
+    text-shadow:0 0 15px #ffea00;
+
+}
+
+.imagen-wrap{
+
+    display:flex;
+
+    justify-content:center;
+
 }
 
 .imagen-producto{
-    width:190px;
-    height:190px; /* tamaño fijo */
+
+    width:180px;
+
+    height:180px;
+
     object-fit:contain;
+
     background:white;
-    border-radius:22px;
-    margin-bottom:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.15);
-    transition:0.3s;
-}
-.imagen-producto:hover{
-    transform:scale(1.03);
+
+    border-radius:25px;
+
+    padding:12px;
+
+    box-shadow:
+    0 0 20px rgba(0,255,255,.7),
+    0 0 50px rgba(0,255,255,.25);
+
 }
 
-.etiqueta{
-    display:inline-block;
-    background:#e9f3ff;
-    color:#0077ff;
-    padding:8px 18px;
-    border-radius:50px;
-    font-size:14px;
-    font-weight:bold;
-    margin-bottom:15px;
+.nombre{
+
+    text-align:center;
+
+    margin-top:25px;
+
+    color:white;
+
+    font-size:30px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    line-height:1.2;
+
 }
 
-h1{
-    font-size:32px;
-    margin:10px 0;
-    color:#222;
+.marca{
+
+    text-align:center;
+
+    margin-top:12px;
+
+    color:#ff4df0;
+
+    font-size:16px;
+
+    letter-spacing:2px;
+
 }
 
 .precio{
-    font-size:38px;
-    font-weight:bold;
-    color:#0077ff;
-    margin:18px 0;
+
+    text-align:center;
+
+    margin-top:25px;
+
+    font-size:58px;
+
+    font-weight:900;
+
+    color:#00ffff;
+
+    text-shadow:
+    0 0 10px #00ffff,
+    0 0 25px rgba(0,255,255,.8);
+
 }
 
-.detalle{
-    font-size:18px;
-    color:#666;
-    line-height:1.7;
-    margin-top:8px;
+.paneles{
+
+    margin-top:25px;
+
+    display:flex;
+
+    gap:15px;
+
 }
 
-.detalle strong{
-    color:#222;
+.panel{
+
+    flex:1;
+
+    background:#151515;
+
+    border:1px solid #ff4df0;
+
+    padding:18px;
+
+    text-align:center;
+
+    border-radius:15px;
+
+}
+
+.panel span{
+
+    display:block;
+
+    color:#a1a1aa;
+
+    font-size:12px;
+
+    margin-bottom:10px;
+
+    letter-spacing:1px;
+
+}
+
+.panel strong{
+
+    color:white;
+
+    font-size:22px;
+
 }
 
 .fecha{
-    color:#ff0000 !important;
-    font-weight:bold;
-    font-size:20px;
+
+    color:#ff5c7a !important;
 }
 
-.info-box{
-    margin-top:25px;
-    background:#f7faff;
-    padding:15px;
-    border-radius:18px;
-    font-size:16px;
-    color:#555;
-    border:1px solid #e5efff;
+.footer{
+
+    margin-top:22px;
+
+    padding:16px;
+
+    text-align:center;
+
+    color:#ffea00;
+
+    border:1px solid rgba(255,234,0,.3);
+
+    border-radius:15px;
+
+    background:rgba(255,234,0,.05);
+
+    line-height:1.5;
+
 }
 
-.icono-audio{
-    margin-top:18px;
+.audio{
+
+    margin-top:20px;
+
+    text-align:center;
+
+    color:#00ffff;
+
     font-size:14px;
-    color:#999;
-    animation:parpadeo 1.5s infinite;
+
+    animation:pulse 1.5s infinite;
+
 }
 
-@keyframes parpadeo{
-    0%{opacity:0.5;}
+@keyframes pulse{
+
+    0%{opacity:.4;}
     50%{opacity:1;}
-    100%{opacity:0.5;}
+    100%{opacity:.4;}
+
+}
+
+.laser{
+
+    position:absolute;
+
+    top:0;
+
+    left:-100%;
+
+    width:50%;
+
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.12),
+        transparent
+    );
+
+    animation:laser 4s linear infinite;
+
+}
+
+@keyframes laser{
+
+    100%{
+        left:150%;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .cyber{
+
+        padding:25px;
+
+    }
+
+    .nombre{
+
+        font-size:24px;
+
+    }
+
+    .precio{
+
+        font-size:46px;
+
+    }
+
+    .paneles{
+
+        flex-direction:column;
+
+    }
+
+    .imagen-producto{
+
+        width:150px;
+        height:150px;
+
+    }
+
 }
 
 </style>
@@ -153,41 +403,62 @@ h1{
 
 <body onclick="reproducirAudio()">
 
-<div class="contenedor">
+<div class="cyber">
 
-    <div class="etiqueta">
-        Producto Escaneado
+    <div class="laser"></div>
+
+    <div class="header">
+        PRODUCTO DETECTADO
     </div>
 
-    <img src="Producto1.jpg" class="imagen-producto">
+    <div class="imagen-wrap">
 
-    <h1>
-        Azucar Impalpable
-    </h1>
+        <img src="Producto1.jpg" class="imagen-producto">
 
-    <div class="detalle">
-        <strong>Marca:</strong> Bell's
+    </div>
+
+    <div class="nombre">
+        Azúcar Impalpable
+    </div>
+
+    <div class="marca">
+        BELL'S
     </div>
 
     <div class="precio">
         S/. 1.90
     </div>
 
-    <div class="detalle">
-        <strong>Peso Neto:</strong> 180g
+    <div class="paneles">
+
+        <div class="panel">
+
+            <span>PESO NETO</span>
+
+            <strong>
+                180g
+            </strong>
+
+        </div>
+
+        <div class="panel">
+
+            <span>VENCIMIENTO</span>
+
+            <strong class="fecha">
+                12/03/27
+            </strong>
+
+        </div>
+
     </div>
 
-    <div class="detalle">
-        Fecha de vencimiento:<br>
-        <strong class="fecha">12/03/27</strong>
+    <div class="footer">
+        RECOMENDADA PARA DECORACIÓN Y REPOSTERÍA
     </div>
 
-    <div class="info-box">
-        Producto de consumo diario • Calidad garantizada
-    </div>
-
-    <div class="icono-audio">
-        🔊 Toque la pantalla para escuchar
+    <div class="audio">
+        🔊 TOQUE LA PANTALLA PARA ESCUCHAR
     </div>
 
 </div>
@@ -200,7 +471,7 @@ h1{
 
 let reproducido = false;
 
-function reproducirAudio() {
+function reproducirAudio(){
 
     if(reproducido) return;
 
