@@ -6,146 +6,405 @@
 
 <title>Información del Producto</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800;900&display=swap" rel="stylesheet">
+
 <style>
 
 *{
+    margin:0;
+    padding:0;
     box-sizing:border-box;
 }
 
 body{
-    margin:0;
-    height:100vh;
+
+ 
+    font-family:'Orbitron',sans-serif;
+
+    min-height:100vh;
+
     display:flex;
+
     justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#f8f9ff,#e7f0ff);
-    font-family:Arial, sans-serif;
-    overflow:hidden;
+
+    align-items:flex-start;
+
+    padding:20px;
+
+    overflow-x:hidden;
+
+    background:
+    linear-gradient(
+        135deg,
+        #081521,
+        #0b2235,
+        #071411
+    );
+
 }
 
 body::before{
+
     content:"";
-    position:absolute;
-    width:350px;
-    height:350px;
-    background:rgba(0,123,255,0.08);
+
+    position:fixed;
+
+    width:400px;
+
+    height:400px;
+
+    background:#4CAF32;
+
     border-radius:50%;
-    top:-120px;
-    right:-120px;
+
+    top:-150px;
+
+    left:-150px;
+
+    filter:blur(140px);
+
+    opacity:.20;
+
 }
 
 body::after{
+
     content:"";
-    position:absolute;
-    width:250px;
-    height:250px;
-    background:rgba(0,123,255,0.05);
+
+    position:fixed;
+
+    width:400px;
+
+    height:400px;
+
+    background:#1E73BE;
+
     border-radius:50%;
-    bottom:-80px;
-    left:-80px;
+
+    bottom:-150px;
+
+    right:-150px;
+
+    filter:blur(140px);
+
+    opacity:.20;
+
 }
 
-.contenedor{
+.cyber{
+
+    width:100%;
+
+    max-width:460px;
+
     position:relative;
-    width:90%;
-    max-width:420px;
-    background:white;
-    border-radius:30px;
-    padding:35px 28px;
-    text-align:center;
-    box-shadow:0 15px 40px rgba(0,0,0,0.12);
-    animation:entrada 0.8s ease;
-    border:1px solid rgba(255,255,255,0.5);
-    backdrop-filter:blur(10px);
+
+    padding:35px;
+
+    background:rgba(8,15,20,.92);
+
+    backdrop-filter:blur(15px);
+
+    border:2px solid #1E73BE;
+
+    overflow:hidden;
+
+    clip-path:polygon(
+        0 0,
+        92% 0,
+        100% 8%,
+        100% 100%,
+        8% 100%,
+        0 92%
+    );
+
+    box-shadow:
+    0 0 15px rgba(30,115,190,.7),
+    0 0 40px rgba(76,175,50,.25);
+
 }
 
 @keyframes entrada{
+
     from{
         opacity:0;
-        transform:translateY(25px) scale(0.95);
+        transform:scale(.9);
     }
+
     to{
         opacity:1;
-        transform:translateY(0) scale(1);
+        transform:scale(1);
     }
+
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+
+    text-align:center;
+    gap: 4px;
+
+    color:#4CAF32;
+
+    font-size:24px;
+
+    font-weight:900;
+
+    letter-spacing:4px;
+
+    margin-bottom:25px;
+
+    text-shadow:0 0 12px #4CAF32;
+
+}
+
+.header .touch{
+    color:#1E73BE;
+}
+
+.header .talk{
+    color:#4CAF32;
+}
+
+.imagen-wrap{
+
+    display:flex;
+
+    justify-content:center;
+
 }
 
 .imagen-producto{
-    width:190px;
-    height:190px; /* tamaño fijo */
+
+    width:180px;
+
+    height:180px;
+
     object-fit:contain;
+
     background:white;
-    border-radius:22px;
-    margin-bottom:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.15);
-    transition:0.3s;
-}
-.imagen-producto:hover{
-    transform:scale(1.03);
+
+    border-radius:25px;
+
+    padding:12px;
+
+    box-shadow:
+    0 0 20px rgba(30,115,190,.8),
+    0 0 45px rgba(76,175,50,.35);
+
 }
 
-.etiqueta{
-    display:inline-block;
-    background:#e9f3ff;
-    color:#0077ff;
-    padding:8px 18px;
-    border-radius:50px;
-    font-size:14px;
-    font-weight:bold;
-    margin-bottom:15px;
+.nombre{
+
+    text-align:center;
+
+    margin-top:25px;
+
+    color:white;
+
+    font-size:30px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    line-height:1.2;
+
 }
 
-h1{
-    font-size:32px;
-    margin:10px 0;
-    color:#222;
+.marca{
+
+    text-align:center;
+
+    margin-top:12px;
+
+    color:#4CAF32;
+
+    font-size:16px;
+
+    letter-spacing:2px;
+
 }
 
 .precio{
-    font-size:38px;
-    font-weight:bold;
-    color:#0077ff;
-    margin:18px 0;
+
+    text-align:center;
+
+    margin-top:25px;
+
+    font-size:58px;
+
+    font-weight:900;
+
+    color:#1E73BE;
+
+    text-shadow:
+    0 0 10px #1E73BE,
+    0 0 25px rgba(30,115,190,.8);
+
 }
 
-.detalle{
-    font-size:18px;
-    color:#666;
-    line-height:1.7;
-    margin-top:8px;
+.paneles{
+
+    margin-top:25px;
+
+    display:flex;
+
+    gap:15px;
+
 }
 
-.detalle strong{
-    color:#222;
+.panel{
+
+    flex:1;
+
+    background:#10181d;
+
+    border:1px solid #1E73BE;
+
+    padding:18px;
+
+    text-align:center;
+
+    border-radius:15px;
+
+}
+
+.panel span{
+
+    display:block;
+
+    color:#a1a1aa;
+
+    font-size:12px;
+
+    margin-bottom:10px;
+
+    letter-spacing:1px;
+
+}
+
+.panel strong{
+
+    color:white;
+
+    font-size:22px;
+
 }
 
 .fecha{
-    color:#ff0000 !important;
-    font-weight:bold;
-    font-size:20px;
+
+    color:#4CAF32 !important;
+
 }
 
-.info-box{
-    margin-top:25px;
-    background:#f7faff;
-    padding:15px;
-    border-radius:18px;
-    font-size:16px;
-    color:#555;
-    border:1px solid #e5efff;
+.footer{
+
+    margin-top:22px;
+
+    padding:16px;
+
+    text-align:center;
+
+    color:#4CAF32;
+
+    border:1px solid rgba(76,175,50,.35);
+
+    border-radius:15px;
+
+    background:rgba(76,175,50,.08);
+
+    line-height:1.5;
+
 }
 
-.icono-audio{
-    margin-top:18px;
+.audio{
+
+    margin-top:20px;
+
+    text-align:center;
+
+    color:#1E73BE;
+
     font-size:14px;
-    color:#999;
-    animation:parpadeo 1.5s infinite;
+
+    animation:pulse 1.5s infinite;
+
 }
 
-@keyframes parpadeo{
-    0%{opacity:0.5;}
+@keyframes pulse{
+
+    0%{opacity:.4;}
     50%{opacity:1;}
-    100%{opacity:0.5;}
+    100%{opacity:.4;}
+
+}
+
+.laser{
+
+    position:absolute;
+
+    top:0;
+
+    left:-100%;
+
+    width:50%;
+
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(30,115,190,.18),
+        transparent
+    );
+
+    animation:laser 4s linear infinite;
+
+}
+@keyframes laser{
+
+    100%{
+        left:150%;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .cyber{
+
+        padding:25px;
+
+    }
+
+    .nombre{
+
+        font-size:24px;
+
+    }
+
+    .precio{
+
+        font-size:46px;
+
+    }
+
+    .paneles{
+
+        flex-direction:column;
+
+    }
+
+    .imagen-producto{
+
+        width:150px;
+        height:150px;
+
+    }
+
 }
 
 </style>
@@ -153,41 +412,65 @@ h1{
 
 <body onclick="reproducirAudio()">
 
-<div class="contenedor">
+<div class="cyber">
 
-    <div class="etiqueta">
-        Producto Escaneado
+    <div class="laser"></div>
+
+    <div class="header">
+        <div class="touch">Touch
+        </div>
+        <div class="talk">&Talk
+        </div>
     </div>
 
-    <img src="Producto3.jpg" class="imagen-producto">
+    <div class="imagen-wrap">
 
-    <h1>
-        Maicena <br>(libre de gluten)
-    </h1>
+        <img src="Producto3.jpg" class="imagen-producto">
 
-    <div class="detalle">
-        <strong>Marca:</strong> Universal
+    </div>
+
+    <div class="nombre">
+        Maicena
+    </div>
+
+    <div class="marca">
+        Universal
     </div>
 
     <div class="precio">
         S/. 3.90
     </div>
 
-    <div class="detalle">
-        <strong>Peso Neto:</strong> 180g
+    <div class="paneles">
+
+        <div class="panel">
+
+            <span>NET WEIGHT</span>
+
+            <strong>
+                180 g
+            </strong>
+
+        </div>
+
+        <div class="panel">
+
+            <span>EXPIRATION</span>
+
+            <strong class="fecha">
+                30/04/28
+            </strong>
+
+        </div>
+
     </div>
 
-    <div class="detalle">
-        Fecha de vencimiento:<br>
-        <strong class="fecha">30/04/28</strong>
+    <div class="footer">
+        IDEAL FOR PREPARING DESSERTS AND THICKENERS
     </div>
 
-    <div class="info-box">
-        Producto de consumo diario • Calidad garantizada
-    </div>
-
-    <div class="icono-audio">
-        🔊 Toque la pantalla para escuchar
+    <div class="audio">
+        🔊 TOUCH THE SCREEN TO LISTEN
     </div>
 
 </div>
@@ -200,11 +483,27 @@ h1{
 
 let reproducido = false;
 
-function reproducirAudio() {
+function reproducirAudio(){
 
     if(reproducido) return;
 
     const audio = document.getElementById("audio");
+
+    let repeticiones = 0;
+
+    audio.addEventListener("ended", function(){
+
+        if(repeticiones < 1){
+
+            repeticiones++;
+
+            audio.currentTime = 0;
+
+            audio.play();
+
+        }
+
+    });
 
     audio.play().catch(() => {});
 
