@@ -6,35 +6,629 @@
 
 <title>Información del Producto</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800;900&display=swap" rel="stylesheet">
+
 <style>
 
 *{
+    margin:0;
+    padding:0;
     box-sizing:border-box;
 }
 
 body{
-    margin:0;
+
+ 
+    font-family:'Orbitron',sans-serif;
+
     min-height:100vh;
+
     display:flex;
+
     justify-content:center;
+
     align-items:flex-start;
-    padding-top:40px;
-    padding-bottom:40px;
-    background:linear-gradient(135deg,#f8f9ff,#e7f0ff);
-    font-family:Arial, sans-serif;
-    overflow:auto;
+
+    padding:20px;
+
+    overflow-x:hidden;
+
+    background:
+    linear-gradient(
+        135deg,
+        #081521,
+        #0b2235,
+        #071411
+    );
+
 }
 
 body::before{
+
     content:"";
-    position:absolute;
-    width:350px;
-    height:350px;
-    background:rgba(0,123,255,0.08);
+
+    position:fixed;
+
+    width:400px;
+
+    height:400px;
+
+    background:#4CAF32;
+
     border-radius:50%;
-    top:-120px;
-    right:-120px;
+
+    top:-150px;
+
+    left:-150px;
+
+    filter:blur(140px);
+
+    opacity:.20;
+
 }
 
 body::after{
+
     content:"";
+
+    position:fixed;
+
+    width:400px;
+
+    height:400px;
+
+    background:#1E73BE;
+
+    border-radius:50%;
+
+    bottom:-150px;
+
+    right:-150px;
+
+    filter:blur(140px);
+
+    opacity:.20;
+
+}
+
+.cyber{
+
+    width:100%;
+    max-width:460px;
+    position:relative;
+    padding:35px;
+    background:rgba(8,15,20,.92);
+    backdrop-filter:blur(15px);
+
+    border:2px solid #1E73BE;
+
+    overflow:hidden;
+
+    clip-path:polygon(
+        0 0,
+        92% 0,
+        100% 8%,
+        100% 100%,
+        8% 100%,
+        0 92%
+    );
+
+    animation:ofertaGlow 3s infinite;
+
+    box-shadow:
+    0 0 15px rgba(30,115,190,.7),
+    0 0 40px rgba(76,175,50,.25);
+
+}
+    box-shadow:
+    0 0 15px rgba(30,115,190,.7),
+    0 0 40px rgba(76,175,50,.25);
+
+}
+@keyframes ofertaGlow{
+
+    0%,60%,100%{
+
+        border-color:#1E73BE;
+
+        box-shadow:
+        0 0 15px rgba(30,115,190,.7),
+        0 0 40px rgba(76,175,50,.25);
+
+    }
+
+    70%,90%{
+
+        border-color:#ff2222;
+
+        box-shadow:
+        0 0 10px #ff2222,
+        0 0 25px #ff2222,
+        0 0 50px rgba(255,34,34,.9),
+        0 0 80px rgba(255,34,34,.7);
+
+    }
+
+}
+@keyframes entrada{
+
+    from{
+        opacity:0;
+        transform:scale(.9);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+
+    text-align:center;
+    gap: 4px;
+
+    color:#4CAF32;
+
+    font-size:24px;
+
+    font-weight:900;
+
+    letter-spacing:4px;
+
+    margin-bottom:25px;
+
+    text-shadow:0 0 12px #4CAF32;
+
+}
+
+.header .touch{
+    color:#1E73BE;
+}
+
+.header .talk{
+    color:#4CAF32;
+}
+
+.imagen-wrap{
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.imagen-producto{
+
+    width:180px;
+
+    height:180px;
+
+    object-fit:contain;
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:12px;
+
+    box-shadow:
+    0 0 20px rgba(30,115,190,.8),
+    0 0 45px rgba(76,175,50,.35);
+
+}
+
+.nombre{
+
+    text-align:center;
+
+    margin-top:25px;
+
+    color:white;
+
+    font-size:30px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    line-height:1.2;
+
+}
+
+.marca{
+
+    text-align:center;
+
+    margin-top:12px;
+
+    color:#4CAF32;
+
+    font-size:16px;
+
+    letter-spacing:2px;
+
+}
+
+.precio{
+
+    text-align:center;
+
+    margin-top:25px;
+
+    font-size:58px;
+
+    font-weight:900;
+
+    color:#1E73BE;
+
+    text-shadow:
+    0 0 10px #1E73BE,
+    0 0 25px rgba(30,115,190,.8);
+
+}
+.promo-text{
+
+    text-align:center;
+
+    margin-top:8px;
+
+    color:#ff4040;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    animation:promoPulse 1.5s infinite;
+
+}
+
+@keyframes promoPulse{
+
+    0%{
+        opacity:.5;
+    }
+
+    50%{
+        opacity:1;
+        text-shadow:
+        0 0 10px #ff4040,
+        0 0 20px #ff4040;
+    }
+
+    100%{
+        opacity:.5;
+    }
+
+}
+    .oferta-badge{
+
+    position:absolute;
+
+    top:18px;
+
+    right:-40px;
+
+    width:150px;
+
+    text-align:center;
+
+    padding:10px 0;
+
+    background:linear-gradient(
+        90deg,
+        #ff0000,
+        #ff4d4d
+    );
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:900;
+
+    letter-spacing:3px;
+
+    transform:rotate(35deg);
+
+    box-shadow:
+    0 0 15px #ff0000,
+    0 0 30px rgba(255,0,0,.8);
+
+    z-index:20;
+
+    animation:ofertaBadge 1.8s infinite;
+
+}
+
+@keyframes ofertaBadge{
+
+    0%,100%{
+        opacity:1;
+    }
+
+    50%{
+        opacity:.65;
+    }
+
+}
+.paneles{
+
+    margin-top:25px;
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.panel{
+
+    flex:1;
+
+    background:#10181d;
+
+    border:1px solid #1E73BE;
+
+    padding:18px;
+
+    text-align:center;
+
+    border-radius:15px;
+
+}
+
+.panel span{
+
+    display:block;
+
+    color:#a1a1aa;
+
+    font-size:12px;
+
+    margin-bottom:10px;
+
+    letter-spacing:1px;
+
+}
+
+.panel strong{
+
+    color:white;
+
+    font-size:22px;
+
+}
+
+.fecha{
+
+    color:#4CAF32 !important;
+
+}
+
+.footer{
+
+    margin-top:22px;
+
+    padding:16px;
+
+    text-align:center;
+
+    color:#4CAF32;
+
+    border:1px solid rgba(76,175,50,.35);
+
+    border-radius:15px;
+
+    background:rgba(76,175,50,.08);
+
+    line-height:1.5;
+
+}
+
+.audio{
+
+    margin-top:20px;
+
+    text-align:center;
+
+    color:#1E73BE;
+
+    font-size:14px;
+
+    animation:pulse 1.5s infinite;
+
+}
+
+@keyframes pulse{
+
+    0%{opacity:.4;}
+    50%{opacity:1;}
+    100%{opacity:.4;}
+
+}
+
+.laser{
+
+    position:absolute;
+
+    top:0;
+
+    left:-100%;
+
+    width:50%;
+
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(30,115,190,.18),
+        transparent
+    );
+
+    animation:laser 4s linear infinite;
+
+}
+@keyframes laser{
+
+    100%{
+        left:150%;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .cyber{
+
+        padding:25px;
+
+    }
+
+    .nombre{
+
+        font-size:24px;
+
+    }
+
+    .precio{
+
+        font-size:46px;
+
+    }
+
+    .paneles{
+
+        flex-direction:column;
+
+    }
+
+    .imagen-producto{
+
+        width:150px;
+        height:150px;
+
+    }
+
+}
+
+</style>
+</head>
+
+<body onclick="reproducirAudio()">
+
+<div class="cyber">
+
+    <div class="laser"></div>
+    <div class="oferta-badge">
+    OFERTA
+    </div>
+    <div class="header">
+        <div class="touch">Touch
+        </div>
+        <div class="talk">&Talk
+        </div>
+    </div>
+
+    <div class="imagen-wrap">
+
+        <img src="Producto1.jpg" class="imagen-producto">
+
+    </div>
+
+    <div class="nombre">
+        Azúcar Impalpable
+    </div>
+
+    <div class="marca">
+        BELL'S
+    </div>
+
+    <div class="precio">
+        S/. 1.90
+    </div>
+    <div class="promo-text">
+    🔥 PRECIO ESPECIAL POR TIEMPO LIMITADO
+    </div>
+    <div class="paneles">
+
+        <div class="panel">
+
+            <span>PESO NETO</span>
+
+            <strong>
+                180g
+            </strong>
+
+        </div>
+
+        <div class="panel">
+
+            <span>VENCIMIENTO</span>
+
+            <strong class="fecha">
+                12/03/27
+            </strong>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        RECOMENDADA PARA DECORACIÓN Y REPOSTERÍA
+    </div>
+
+    <div class="audio">
+        🔊 TOQUE LA PANTALLA PARA ESCUCHAR
+    </div>
+
+</div>
+
+<audio id="audio" hidden>
+    <source src="Producto1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+let reproducido = false;
+
+function reproducirAudio(){
+
+    if(reproducido) return;
+
+    const audio = document.getElementById("audio");
+
+    let repeticiones = 0;
+
+    audio.addEventListener("ended", function(){
+
+        if(repeticiones < 1){
+
+            repeticiones++;
+
+            audio.currentTime = 0;
+
+            audio.play();
+
+        }
+
+    });
+
+    audio.play().catch(() => {});
+
+    reproducido = true;
+}
+
+</script>
+
+</body>
+</html>
