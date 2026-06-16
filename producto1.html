@@ -479,20 +479,31 @@ body::after{
 </audio>
 
 <script>
-
-let reproducido = false;
+// Cambiamos el booleano por un contador de reproducciones
+let reproducciones = 0; 
 
 function reproducirAudio(){
-
-    if(reproducido) return;
+    // Si ya se reprodujo 2 veces (o está en proceso), no hacemos nada
+    if (reproduciones >= 1) return; 
 
     const audio = document.getElementById("audio");
 
+    // Escuchamos cuando el audio termine la primera vez
+    audio.addEventListener('ended', function alTerminar() {
+        reproducciones++; // Sumamos 1 al contador (ahora vale 1)
+
+        if (reproducciones < 2) {
+            audio.play().catch(() => {}); // Lo volvemos a reproducir
+        } else {
+            // Opcional: Removemos el evento para limpiar el código cuando ya cumplió su meta
+            audio.removeEventListener('ended', alTerminar); 
+        }
+    });
+
+    // Primera reproducción
     audio.play().catch(() => {});
-
-    reproducido = true;
+    reproducciones = 1; // Marcamos que ya empezó la primera
 }
-
 </script>
 
 </body>
