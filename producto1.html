@@ -123,33 +123,7 @@ body::after{
     0 0 40px rgba(76,175,50,.25);
 
 }
-.logo-touch{
 
-    position:absolute;
-
-    top:15px;
-
-    right:15px;
-
-    z-index:10;
-
-}
-
-.logo-touch img{
-
-    width:90px;
-
-    background:white;
-
-    padding:6px;
-
-    border-radius:12px;
-
-    box-shadow:
-    0 0 10px rgba(30,115,190,.6),
-    0 0 20px rgba(76,175,50,.4);
-
-}
 @keyframes entrada{
 
     from{
@@ -180,6 +154,14 @@ body::after{
 
     text-shadow:0 0 12px #4CAF32;
 
+}
+
+.header .touch{
+    color:#4CAF32;
+}
+
+.header .talk{
+    color:#1E73BE;
 }
 
 .imagen-wrap{
@@ -428,13 +410,14 @@ body::after{
 <body onclick="reproducirAudio()">
 
 <div class="cyber">
-<div class="logo-touch">
-    <img src="logo touch&talk.png" alt="Touch&Talk">
-</div>
+
     <div class="laser"></div>
 
     <div class="header">
-        PRODUCTO DETECTADO
+        < div class="touch"> Touch
+        </div>
+        < div class="talk"> &Talk
+        </div>
     </div>
 
     <div class="imagen-wrap">
